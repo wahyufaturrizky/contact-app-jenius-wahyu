@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Col, Row } from "reactstrap";
 
 // icons
@@ -12,17 +12,20 @@ import { CONTACT_TO_UPDATE, SET_SINGLE_CONTACT } from "../context/action.types";
 
 import { useHistory } from "react-router-dom";
 
+import { toast } from "react-toastify";
 import usericon from "../usericon.svg";
 
 const Contact = ({ contact, contactKey }) => {
   //TODO: DONE destructuring dispatch from the context
   const { dispatch } = useContext(ContactContext);
 
+  const [isLoading, setIsLoading] = useState(false);
+
   const history = useHistory();
 
   // to delete the contact when delete contact is clicked
   const deleteContact = async () => {
-    //TODO: DONE create this method from api
+    setIsLoading(true);
 
     const contactsRef = await fetch(`https://contact.herokuapp.com/contact/${contactKey}`, {
       method: "DELETE",
@@ -31,7 +34,15 @@ const Contact = ({ contact, contactKey }) => {
       },
     });
 
-    const res = await contactsRef.json();
+    const res = contactsRef;
+
+    if (res.ok) {
+      toast("Contacts Deleted Successfully!", { type: "success" });
+      setIsLoading(false);
+    } else {
+      toast("Contacts Failed to Delete", { type: "success" });
+      setIsLoading(false);
+    }
   };
 
   const updateImpContact = async () => {};
@@ -99,12 +110,13 @@ const Contact = ({ contact, contactKey }) => {
         <Col md="1" className="d-flex justify-content-center align-items-center">
           <div className="iconbtn mr-4 ">
             <MdDelete
-              onClick={() => deleteContact()}
+              onClick={() => !isLoading && deleteContact()}
               color="#FF6370"
               className=" icon"
               style={{ zIndex: "1" }}
             />
           </div>
+
           <div className="iconbtn mr-5" style={{ marginRight: "30px" }}>
             <MdEdit className="icon " color="#54eafe" onClick={() => updateContact()} />{" "}
           </div>
