@@ -1,8 +1,6 @@
 # Project Title
 
-Contact Application Using Realtime Database
-
-An application created using `ReactJS` to store a contacts in a database using to `Firebase Realtime Database` and `Storage`.
+Contact Application
 
 ## Project Screenshots
 
@@ -64,18 +62,6 @@ Start the server
   npm run start
 ```
 
-```bash
-  put your Firebase Configuration in /utils/config.js file
-```
-
-## Reflection
-
-This was a project built during 3rd year of Engineering college as a personal project. The Project goal was to use `ReactJs` technology to create a react app to store a contact details in a `Realtime Database`.
-
-One of the main challenge I ran into was Database and Storage, here I have used Firebase `RealeTime Databse` and `Storage`
-
 ## Documentation
-
-[Firebase](https://firebase.google.com/docs)
 
 [React](https://beta.reactjs.org/)

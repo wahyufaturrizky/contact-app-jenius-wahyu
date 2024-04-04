@@ -46,7 +46,7 @@ const App = () => {
       payload: true,
     });
 
-    const contactsRef = await fetch(`${process.env.REACT_APP_BASE_URL}/contact`);
+    const contactsRef = await fetch(`https://contact.herokuapp.com/contact`);
 
     const res = await contactsRef.json();
 

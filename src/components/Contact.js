@@ -25,7 +25,7 @@ const Contact = ({ contact, contactKey }) => {
   const deleteContact = async () => {
     //TODO: DONE create this method from api
 
-    const contactsRef = await fetch(`${process.env.REACT_APP_BASE_URL}/contact/${contactKey}`, {
+    const contactsRef = await fetch(`https://contact.herokuapp.com/contact/${contactKey}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",

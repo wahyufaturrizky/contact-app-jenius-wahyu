@@ -83,7 +83,7 @@ const AddContact = () => {
       photo,
     };
 
-    const contactsRef = await fetch(`${process.env.REACT_APP_BASE_URL}/contact`, {
+    const contactsRef = await fetch(`https://contact.herokuapp.com/contact`, {
       method: "POST",
       body: JSON.stringify(payload),
       headers: {
@@ -129,16 +129,13 @@ const AddContact = () => {
       photo,
     };
 
-    const contactsRef = await fetch(
-      `${process.env.REACT_APP_BASE_URL}/contact/${contactToUpdateKey}`,
-      {
-        method: "PUT",
-        body: JSON.stringify(payload),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
+    const contactsRef = await fetch(`https://contact.herokuapp.com/contact/${contactToUpdateKey}`, {
+      method: "PUT",
+      body: JSON.stringify(payload),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
 
     const res = await contactsRef;
 
