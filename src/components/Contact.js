@@ -18,7 +18,6 @@ const Contact = ({ contact, contactKey }) => {
   //TODO: DONE destructuring dispatch from the context
   const { dispatch } = useContext(ContactContext);
 
-  // history hooks to get history
   const history = useHistory();
 
   // to delete the contact when delete contact is clicked
